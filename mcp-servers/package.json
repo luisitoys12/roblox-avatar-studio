@@ -1,0 +1,15 @@
+{
+  "name": "roblox-mcp-sse-bridge",
+  "version": "1.0.0",
+  "description": "MCP SSE bridge - expone Blender MCP como endpoint HTTP accesible remotamente",
+  "main": "sse-server.js",
+  "scripts": {
+    "start": "node sse-server.js",
+    "dev": "node --watch sse-server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.0",
+    "cors": "^2.8.5",
+    "net": "^1.0.2"
+  }
+}

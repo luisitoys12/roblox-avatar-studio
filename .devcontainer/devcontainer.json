@@ -1,0 +1,45 @@
+{
+  "name": "Roblox Avatar Studio - Cloud Workspace",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-24.04",
+  "hostRequirements": {
+    "cpus": 4,
+    "memory": "8gb",
+    "storage": "32gb"
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": { "version": "22" },
+    "ghcr.io/devcontainers/features/python:1": { "version": "3.12" },
+    "ghcr.io/devcontainers/features/desktop-lite:1": {
+      "version": "latest",
+      "password": "robloxmcp",
+      "webPort": "6080",
+      "vncPort": "5901"
+    }
+  },
+  "postCreateCommand": "bash .devcontainer/postCreate.sh",
+  "postStartCommand": "bash .devcontainer/postStart.sh",
+  "forwardPorts": [6080, 5901, 9876, 3000, 8080],
+  "portsAttributes": {
+    "6080": { "label": "🖥️ Desktop VNC (noVNC)", "onAutoForward": "openBrowserOnce" },
+    "9876": { "label": "🎨 Blender MCP Socket" },
+    "3000": { "label": "🔌 MCP SSE Server" },
+    "8080": { "label": "📊 Dashboard" }
+  },
+  "remoteEnv": {
+    "DISPLAY": ":1",
+    "BLENDER_VERSION": "4.3.2",
+    "NODE_ENV": "development"
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-vscode.vscode-json",
+        "bradlc.vscode-tailwindcss"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash"
+      }
+    }
+  }
+}
